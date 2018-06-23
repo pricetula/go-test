@@ -4,9 +4,16 @@ import (
 	"fmt"
 )
 
-// Variable identifiers contain values which can change but must be of the same type. variables are lexically scoped
+// Variables are memory addresses with identifiers contain values which can change but must be of the same type. variables are lexically scoped
 func main() {
-	// Variables declared inside this function are only available within the main function's scope
+	/*
+		Variables declared inside this function are only available within the main function's scope
+		variable = [memory address] ---> value
+
+		var identifier type = value
+		var identifier = value
+		identifier := value
+	*/
 
 	// Variable with identifier name 'a' is declared as an int type variable and initialized with its zero value which is '0'
 	/*
@@ -27,10 +34,24 @@ func main() {
 	var c = true
 
 	var (
+		// parallel and multiple variable assignment
 		d, e, f = false, "yay", 90
 	)
 
-	fmt.Println(a, b, c, d, e, f, g)
+	// Initializing declaration of variable identified as h with int type value of 430
+	// This only works in a local scope not global or package scope
+	h := 430
+
+	fmt.Println(a, b, c, d, e, f, g, h)
+
+	// Reveal the address which contains content of variable identified as 'a'
+	fmt.Println(&a)
+
+	// Pointer variable is that which points to a memory address containing a value of specific type
+	// var identifier *type = memory address
+	var i *int = &a
+
+	fmt.Println(i)
 }
 
 // globally scoped or package scoped variable which is available all through out the package
