@@ -137,6 +137,6 @@ func a15() { // defer is a label which means a block of code is run right before
 	fmt.Println("I will run first I promise dude")
 }
 
-func paniced() {
+func a16() {
 	panic("Hey i paniced")
 }
