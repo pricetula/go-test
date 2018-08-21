@@ -33,6 +33,21 @@ func main() {
 
 	count := 0
 	a12(count)
+
+	a13()()
+
+	fmt.Println(a14()(3))
+
+	replicateInstance := replica(1)  // value 1 initialized
+	fmt.Println(replicateInstance()) // returned function will multiply what was insitialized with before
+	fmt.Println(replicateInstance())
+	fmt.Println(replicateInstance())
+	fmt.Println(replicateInstance())
+	fmt.Println(replicateInstance())
+
+	a15()
+
+	a16()
 }
 
 func a1() {
@@ -92,4 +107,36 @@ func a12(c int) { // Recursive function calls it self
 		a12(c + 1) // recursive call to itself. The last called function will resolve first
 	}
 	fmt.Println("Recurs::", c)
+}
+
+func a13() func() { // function that returns an anonymous function
+	return func() {
+		fmt.Println("Returned Function")
+	}
+}
+
+func a14() func(int) int { // function that returns an anonymous function which has an int type argument and returns an int type value
+	return func(a int) int { // anonymous function returned
+		return 5 * a
+	}
+}
+
+func replica(a int) func() int {
+	return func() int {
+		a *= 2
+
+		return a
+	}
+}
+
+func a15() { // defer is a label which means a block of code is run right before the called function exits
+	defer func() { // function is defered hence will run last
+		fmt.Println("I will actually run last")
+	}()
+
+	fmt.Println("I will run first I promise dude")
+}
+
+func paniced() {
+	panic("Hey i paniced")
 }
