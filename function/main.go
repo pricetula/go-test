@@ -47,7 +47,7 @@ func main() {
 
 	a15()
 
-	a16()
+	a17()
 }
 
 func a1() {
@@ -139,4 +139,16 @@ func a15() { // defer is a label which means a block of code is run right before
 
 func a16() {
 	panic("Hey i paniced")
+}
+
+func a17() {
+	defer func() {
+		// Defered function runs at the end of this function block and will get recovored panic
+		panicVal := recover()
+		if panicVal != nil {
+			fmt.Println("Recovered Panic message:: ", panicVal)
+		}
+	}()
+	// This function will panic
+	a16()
 }
