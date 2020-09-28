@@ -15,9 +15,12 @@ func main() {
 
 	// variable b is now a pointer since variable a's contents have been copied to b
 	// any change to testA variable will also affect that pointed with a and b since they both point to same memory location
-	b := a
+	var b *int = a
 
-	fmt.Println(*a, *b, &b) // NB &b is the address of pointer which contains memory address of variable testA
+	// since a is a pointer to retreive the value of which its pointer holds prefix with *
+	// NB &b is the address of pointer which contains memory address of variable testA
+	//
+	fmt.Println(*a, *b, &b)
 
 	testA = 239
 
