@@ -77,7 +77,7 @@ func (s snake) height() int {
 
 // size implementation
 func (s snake) size() int {
-	// reference value s is passed by value
+	// s is passed by refrence
 	return s.headHeight + s.slitherLength
 }
 
